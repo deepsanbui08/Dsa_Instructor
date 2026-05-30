@@ -3,7 +3,7 @@ import DSAInstructor from './DsaInstructor'
 
 const App = () => {
   return (
-    <div className="h-full">
+    <div>
       <DSAInstructor/>
     </div>
   )

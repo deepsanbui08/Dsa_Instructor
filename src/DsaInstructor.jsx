@@ -197,7 +197,7 @@ export default function DSAInstructor() {
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
+        height: "100dvh",
         overflow: "hidden",
         backgroundColor: "#0b0f1a",
         color: "#e2e8f0",
