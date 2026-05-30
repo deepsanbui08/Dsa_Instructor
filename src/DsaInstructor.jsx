@@ -22,10 +22,20 @@ Always structure your answers clearly:
 Keep responses concise and to the point. Match the answer length to the complexity of the question — simple questions (e.g. "what is an array") get short, clear answers (3-5 lines max). Complex questions (e.g. "explain dynamic programming with examples") get detailed answers. 
 Never over-explain. Never pad with unnecessary text.`;
 
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+
+
+const API_KEYS = [
+  import.meta.env.VITE_GEMINI_API_KEY_1,
+  import.meta.env.VITE_GEMINI_API_KEY_2,
+];
 const GEMINI_MODEL = "gemini-3.5-flash";
 
+let currentKey = 0;
+
 async function askDSAInstructor(conversationHistory) {
+  const GEMINI_API_KEY = API_KEYS[currentKey % API_KEYS.length];
+  currentKey++;
+
   const contents = conversationHistory.map((msg) => ({
     role: msg.role === "assistant" ? "model" : "user",
     parts: [{ text: msg.content }],
